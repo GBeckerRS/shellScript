@@ -1,0 +1,18 @@
+#!/bin/bash
+AMBIENTE=~/Dados/temp/log
+
+if [ ! -d "$AMBIENTE" ]; then
+echo "ERRO: Diretorio nao encontrado...";
+echo "O diretorio "$AMBIENTE" deve existir.";
+echo "Execuçao abortada!";
+exit
+fi
+
+for i in $*; do
+programa=$i
+err='/log-'$programa'-STDERR.txt'
+out='/log-'$programa'-STDOUT.txt'
+
+echo 'Lauching '$programa;
+$programa >> $AMBIENTE$out 2>> $AMBIENTE$err &
+done
