@@ -1,0 +1,21 @@
+#######################
+#
+#	Script utizado para montar filesystem's.
+#
+# 1.0v -> Monta unidade localizada em /dev/sda3
+# 1.1v -> Separado rotina de configuracao em outro script
+#
+# Melhorias: Opção para o Usuário definir o filesystem que será montado.
+#
+# Data Criação: 11/01/2014
+# Data Última Modificação: 11/02/2016
+#
+######################
+#! /bin/bash
+
+echo "Montando filesystem..."
+sudo mount /dev/sda3 /home/gbecker/Dados
+
+echo "Fornecendo direitos de escrita/leitura..."
+sudo chmod -R 777 /home/gbecker/Dados
+
